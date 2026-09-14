@@ -266,8 +266,9 @@
     if (!next) {
       return;
     }
-    const current = queuedDir || direction;
-    if (opposite(next, current)) {
+    // Never reverse the heading currently in motion. Keep only the first
+    // pending turn so Up-then-Left cannot collapse into an instant 180.
+    if (opposite(next, direction) || queuedDir) {
       return;
     }
     queuedDir = next;
