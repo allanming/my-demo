@@ -28,6 +28,10 @@
     A: "left",
     S: "down",
     D: "right",
+    KeyW: "up",
+    KeyA: "left",
+    KeyS: "down",
+    KeyD: "right",
   };
 
   const canvas = document.getElementById("board");
@@ -287,7 +291,7 @@
       return;
     }
 
-    const dir = KEY_TO_DIR[event.key];
+    const dir = KEY_TO_DIR[event.key] || KEY_TO_DIR[event.code];
     if (!dir) {
       return;
     }
