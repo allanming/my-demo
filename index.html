@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hud">
+        <div class="brand">
+          <h1>Snake</h1>
+          <p class="tagline">Eat. Grow. Don’t crash.</p>
+        </div>
+        <div class="scores" aria-live="polite">
+          <div class="score-block">
+            <span class="label">Score</span>
+            <span id="score" class="value">0</span>
+          </div>
+          <div class="score-block">
+            <span class="label">Best</span>
+            <span id="best" class="value">0</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="board-wrap">
+        <canvas id="board" width="528" height="528" aria-label="Snake game board"></canvas>
+        <div id="overlay" class="overlay">
+          <p id="overlay-title" class="overlay-title">Ready</p>
+          <p id="overlay-text" class="overlay-text">
+            Use arrow keys or WASD to start
+          </p>
+          <button id="restart" type="button">Start game</button>
+        </div>
+      </section>
+
+      <footer class="help">
+        <p><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> or <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> move</p>
+        <p><kbd>Space</kbd> restart after game over</p>
+      </footer>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
