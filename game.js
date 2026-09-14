@@ -4,7 +4,7 @@
   const COLS = 24;
   const ROWS = 24;
   const CELL = 22;
-  const START_TICK_MS = 130;
+  const START_TICK_MS = 180;
   const MIN_TICK_MS = 72;
   const BEST_KEY = "snake-best-score";
 
@@ -38,6 +38,11 @@
   const scoreEl = document.getElementById("score");
   const bestEl = document.getElementById("best");
   const ctx = canvas.getContext("2d");
+  if (typeof ctx.roundRect !== "function") {
+    ctx.roundRect = function (x, y, w, h) {
+      ctx.rect(x, y, w, h);
+    };
+  }
 
   canvas.width = COLS * CELL;
   canvas.height = ROWS * CELL;
@@ -101,7 +106,7 @@
     direction = DIRS.right;
     queuedDir = null;
     score = 0;
-    food = randomEmptyCell();
+    food = { x: midX + 3, y: midY };
     running = false;
     scoreEl.textContent = "0";
     showOverlay("Ready", "Use arrow keys or WASD to start", "Start game");
